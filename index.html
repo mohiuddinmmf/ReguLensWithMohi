@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mohi Farooqui SFDA Consulting</title>
+<meta name="description" content="SFDA medical device and IVD registration consulting in Saudi Arabia: MDMA submissions, technical file drafting, licensing and training.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a left-aligned dossier — hero with a "file stamp" credentials card, then numbered sections that read like a technical file index. */
+:root{
+  --paper:#f4f7f5;
+  --surface:#ffffff;
+  --ink:#11201b;
+  --muted:#52625c;
+  --line:#d6e0db;
+  --accent:#0b6b4c;
+  --accent-soft:#e2f0ea;
+  --gold:#a8801a;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --arabic:"IBM Plex Sans Arabic", "Geeza Pro", "Segoe UI", sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0d1613; --surface:#14201c; --ink:#e7efeb; --muted:#9bb0a7;
+    --line:#26362f; --accent:#4cc79a; --accent-soft:#16302a; --gold:#d8b452;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0d1613; --surface:#14201c; --ink:#e7efeb; --muted:#9bb0a7;
+  --line:#26362f; --accent:#4cc79a; --accent-soft:#16302a; --gold:#d8b452;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:700;letter-spacing:-.02em}
+h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700}
+h3{font-size:1.15rem;font-weight:700}
+p{margin:0}
+
+/* nav */
+header.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+.brand{font-family:var(--display);font-weight:700;font-size:1.15rem;text-decoration:none;color:var(--ink)}
+.brand span{color:var(--accent)}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+nav a{color:var(--muted);text-decoration:none;font-weight:500;font-size:.95rem}
+nav a:hover{color:var(--ink)}
+@media (max-width:760px){nav ul{display:none}}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--paper);border:0;border-radius:6px;padding:12px 20px;font:600 .98rem var(--body);text-decoration:none;cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn.small{padding:8px 14px;font-size:.9rem}
+
+/* hero */
+.hero{padding:72px 0 56px;display:grid;grid-template-columns:1.35fr 1fr;gap:48px;align-items:center}
+@media (max-width:880px){.hero{grid-template-columns:1fr;padding-top:48px}}
+.eyebrow{font-size:.85rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.hero p.lead{font-size:1.2rem;color:var(--muted);max-width:58ch;margin:20px 0 28px}
+.hero .ar{font-family:var(--arabic);direction:rtl;color:var(--muted);font-size:1.05rem;margin-top:-12px;margin-bottom:28px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.dossier{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:28px;position:relative;box-shadow:0 18px 40px -28px rgba(0,0,0,.35)}
+.dossier .stamp{position:absolute;top:-14px;right:20px;background:var(--gold);color:#fff;font:600 .75rem var(--body);letter-spacing:.08em;text-transform:uppercase;padding:6px 10px;border-radius:4px}
+.dossier dl{display:grid;grid-template-columns:1fr 1fr;gap:22px 18px;margin:0}
+.dossier dt{font-family:var(--display);font-size:2.1rem;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;line-height:1}
+.dossier dd{margin:6px 0 0;color:var(--muted);font-size:.92rem;line-height:1.4}
+.dossier .who{border-top:1px solid var(--line);margin-top:24px;padding-top:18px;font-size:.95rem}
+.dossier .who strong{display:block;font-size:1.05rem}
+
+/* sections */
+section{padding:64px 0;border-top:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:90px 1fr;gap:16px;margin-bottom:36px;align-items:baseline}
+.sec-head .num{font-family:var(--display);color:var(--gold);font-weight:700;font-size:1rem;letter-spacing:.05em}
+.sec-head p{color:var(--muted);margin-top:10px;max-width:62ch}
+@media (max-width:600px){.sec-head{grid-template-columns:1fr;gap:4px}}
+
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.svc{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:10px}
+.svc p{color:var(--muted);font-size:.97rem}
+.group-title{font-size:1.2rem;margin:8px 0 16px;color:var(--ink)}
+.services + .group-title{margin-top:40px}
+.svc .tag{font-size:.78rem;font-weight:600;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:3px 10px;align-self:flex-start}
+
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+.steps li{padding:22px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+.steps li:last-child{border-right:0}
+.steps .n{font-family:var(--display);font-weight:700;color:var(--accent);font-size:.9rem}
+.steps p{color:var(--muted);font-size:.93rem}
+@media (max-width:700px){.steps li{border-right:0;border-bottom:1px solid var(--line)}.steps li:last-child{border-bottom:0}}
+
+.refmap{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+@media (max-width:820px){.refmap{grid-template-columns:1fr}}
+.map{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden;font-size:.93rem}
+.map th,.map td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.map th{font-family:var(--display);font-size:.85rem;letter-spacing:.04em;color:var(--muted);background:var(--accent-soft)}
+.map tr:last-child td{border-bottom:0}
+.zh{font-size:1.05rem;color:var(--muted);margin-top:14px}
+.refmap ul{margin:18px 0 0;padding-left:20px;color:var(--muted)}
+.refmap li{margin-bottom:6px}
+
+.about{display:grid;grid-template-columns:1.2fr 1fr;gap:40px}
+@media (max-width:820px){.about{grid-template-columns:1fr}}
+.about p{margin-bottom:16px;max-width:62ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 12px;font-size:.88rem}
+.timeline{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}
+.timeline li{padding:0 0 18px 18px;position:relative}
+.timeline li::before{content:"";position:absolute;left:-7px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2px solid var(--accent)}
+.timeline .role{font-weight:600}
+.timeline .org{color:var(--muted);font-size:.93rem}
+
+.masterclass{background:var(--ink);color:var(--paper);border-radius:12px;padding:40px;display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:center}
+.masterclass h2{color:var(--paper)}
+.masterclass p{opacity:.85;margin-top:12px;max-width:56ch}
+.masterclass .btn{background:var(--gold);color:#fff}
+.masterclass ul{margin:0;padding-left:18px;opacity:.9}
+@media (max-width:820px){.masterclass{grid-template-columns:1fr;padding:28px}}
+
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:40px}
+@media (max-width:820px){.contact{grid-template-columns:1fr}}
+form{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:24px;display:grid;gap:14px}
+label{font-weight:600;font-size:.9rem;display:block;margin-bottom:6px}
+input,textarea,select{width:100%;font:inherit;font-size:.97rem;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:10px 12px}
+textarea{min-height:110px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:520px){.row2{grid-template-columns:1fr}}
+#out{display:none;background:var(--accent-soft);border-radius:8px;padding:16px;font-size:.93rem;white-space:pre-wrap}
+#out.show{display:block}
+.links{display:grid;gap:12px;margin-top:22px}
+.links a{display:flex;justify-content:space-between;gap:12px;padding:14px 16px;border:1px solid var(--line);border-radius:8px;background:var(--surface);text-decoration:none;color:var(--ink);font-weight:500}
+.links .static{display:flex;justify-content:space-between;gap:12px;padding:14px 16px;border:1px solid var(--line);border-radius:8px;background:var(--surface);font-weight:500}
+.links .static span,.links a span{color:var(--muted);font-weight:400;font-size:.9rem}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:.88rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Mohiuddin M. <span>Farooqui</span></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#reference">Approved abroad</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#masterclass">Masterclass</a></li>
+      </ul>
+    </nav>
+    <a class="btn small" href="#contact">Get in touch</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <div class="eyebrow">Freelance SFDA Regulatory Consultant · Riyadh</div>
+      <h1>Your medical device and IVD route to the Saudi market, handled by someone who has done it 800 times.</h1>
+      <p class="lead">I help medical device and IVD manufacturers, and local importers and distributors, obtain and maintain their SFDA licences and registrations, with submissions that hold up to review and avoid months of back-and-forth on queries.</p>
+      <p class="ar" lang="ar">استشارات تسجيل الأجهزة الطبية ومنتجات التشخيص المخبري لدى الهيئة العامة للغذاء والدواء</p>
+      <div class="actions">
+        <a class="btn" href="#contact">Book a free consultation</a>
+        <a class="btn ghost" href="#services">See services</a>
+      </div>
+    </div>
+    <aside class="dossier" aria-label="Track record">
+      <div class="stamp">Track record</div>
+      <dl>
+        <div><dt>17+</dt><dd>years in Saudi regulatory affairs</dd></div>
+        <div><dt>1,000+</dt><dd>SFDA applications processed</dd></div>
+        <div><dt>800+</dt><dd>MDMA approvals obtained</dd></div>
+        <div><dt>200+</dt><dd>manufacturer relationships across Asia, Europe and North America</dd></div>
+      </dl>
+      <div class="who">
+        <strong>Mohiuddin M. Farooqui</strong>
+        Freelance SFDA regulatory consultant · RAPS member<br>ISO 13485 Internal Audit Training Certificate
+      </div>
+    </aside>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="num">01</div>
+        <div>
+          <h2>Services</h2>
+          <p>For foreign manufacturers and for local importers and distributors in Saudi Arabia. Every engagement is aligned with the SFDA requirements and MDS guidance that apply to it.</p>
+        </div>
+      </div>
+
+      <h3 class="group-title">SFDA licences and registrations</h3>
+      <div class="services">
+        <article class="svc">
+          <span class="tag">ARL</span>
+          <h3>Authorized Representative Licence</h3>
+          <p>Securing the licence that allows a Saudi-based authorized representative to act on behalf of a foreign manufacturer before SFDA.</p>
+        </article>
+        <article class="svc">
+          <span class="tag">MDEL</span>
+          <h3>Medical Device Establishment Licence</h3>
+          <p>Licensing for importers, distributors and other local establishments that handle medical devices and IVDs in the Kingdom.</p>
+        </article>
+        <article class="svc">
+          <span class="tag">MDMA</span>
+          <h3>Medical Device Marketing Authorization</h3>
+          <p>New registrations, changes and renewals for Class A to D medical devices and IVDs, prepared and submitted end to end.</p>
+        </article>
+        <article class="svc">
+          <span class="tag">MDIL</span>
+          <h3>Medical Device Import Licence</h3>
+          <p>Import licensing so registered products can be cleared and shipped into Saudi Arabia without delays at the border.</p>
+        </article>
+        <article class="svc">
+          <span class="tag">PCS</span>
+          <h3>Product Classification Service</h3>
+          <p>Applying to SFDA to confirm whether a product is regulated as a medical device, IVD, drug or other category before investing in registration.</p>
+        </article>
+        <article class="svc">
+          <span class="tag">NCMDR</span>
+          <h3>NCMDR queries</h3>
+          <p>Handling queries from SFDA's National Center for Medical Devices Reporting, including adverse event reports, field safety notices and recall follow-ups.</p>
+        </article>
+        <article class="svc">
+          <span class="tag">UDI</span>
+          <h3>UDI listing</h3>
+          <p>Registering your devices' Unique Device Identification data on the SFDA Saudi-DI database, so products meet labeling and traceability requirements.</p>
+        </article>
+      </div>
+
+      <h3 class="group-title">Regulatory support</h3>
+      <div class="services">
+        <article class="svc">
+          <span class="tag">MDS-REQ1</span>
+          <h3>Technical file review</h3>
+          <p>Section-by-section review of your technical file for alignment with MDS-REQ1, before it reaches the SFDA reviewer.</p>
+        </article>
+        <article class="svc">
+          <span class="tag">MDS-G028</span>
+          <h3>Strategic bundling plan</h3>
+          <p>Grouping product families, models and accessories under MDS-G028 to reduce the number of applications and fees.</p>
+        </article>
+        <article class="svc">
+          <span class="tag">MDS-G008</span>
+          <h3>Classification guidance</h3>
+          <p>Determining the correct risk class under MDS-G008, with the applicable rule documented for your file.</p>
+        </article>
+        <article class="svc">
+          <span class="tag">Gap analysis</span>
+          <h3>Gap analysis</h3>
+          <p>A clear report of every missing or weak document, where it sits in your file, and what SFDA accepts in its place.</p>
+        </article>
+        <article class="svc">
+          <span class="tag">Queries</span>
+          <h3>SFDA query support</h3>
+          <p>Structured responses to SFDA reviewer comments and returned applications, so your file moves forward on the next round.</p>
+        </article>
+        <article class="svc">
+          <span class="tag">Drafting</span>
+          <h3>Drafting justifications</h3>
+          <p>Written justifications for equivalence, exemptions, test omissions and other positions SFDA asks you to explain.</p>
+        </article>
+        <article class="svc">
+          <span class="tag">Templates</span>
+          <h3>Supporting templates</h3>
+          <p>Ready-to-use declarations, letters, checklists and document templates that match SFDA expectations.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="num">02</div>
+        <div>
+          <h2>How an engagement runs</h2>
+          <p>A clear sequence, with you knowing where your file stands at each step.</p>
+        </div>
+      </div>
+      <ol class="steps">
+        <li><span class="n">Step 1</span><h3>Scoping call</h3><p>We confirm classification, reference markets and the fastest eligible route.</p></li>
+        <li><span class="n">Step 2</span><h3>Gap analysis</h3><p>Your existing documents are checked against SFDA requirements and past reviewer comments.</p></li>
+        <li><span class="n">Step 3</span><h3>File completion</h3><p>Missing or weak sections are drafted or corrected with your team.</p></li>
+        <li><span class="n">Step 4</span><h3>Submission</h3><p>The application is filed and tracked through SFDA review.</p></li>
+        <li><span class="n">Step 5</span><h3>Approval and after</h3><p>Deficiency responses, MDMA issue, then changes and renewals as your portfolio grows.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="reference">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="num">03</div>
+        <div>
+          <h2>Already approved in a reference regulatory jurisdiction? Start there.</h2>
+          <p>If your device is already approved by a recognised regulator, such as the US FDA, the EU (CE marking), Health Canada, Australia's TGA or Japan's PMDA, your existing dossier holds most of what SFDA needs. The work is mapping it correctly and filling the specific gaps.</p>
+        </div>
+      </div>
+      <div class="refmap">
+        <div style="overflow-x:auto">
+          <table class="map">
+            <thead><tr><th>Reference market dossier</th><th>SFDA technical file</th></tr></thead>
+            <tbody>
+              <tr><td>Device description and specifications</td><td>Device description and essential principles checklist</td></tr>
+              <tr><td>Verification and validation test reports</td><td>Verification and validation summaries</td></tr>
+              <tr><td>Clinical or performance evaluation report</td><td>Clinical or performance evaluation per SFDA guidance</td></tr>
+              <tr><td>Labels and IFU approved abroad</td><td>English and Arabic labeling and IFU</td></tr>
+              <tr><td>Reference market certificate or clearance</td><td>Supporting evidence of reference market approval</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <ul>
+            <li>Arabic labeling requirements explained before printing</li>
+            <li>Reliance on reference-market approvals where eligible</li>
+            <li>Bundling plans for product families and accessories</li>
+            <li>Clear communication across time zones</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="num">04</div>
+        <div><h2>About Mohi</h2></div>
+      </div>
+      <div class="about">
+        <div>
+          <p>I am an independent, freelance regulatory consultant. I have more than 17 years of experience in Saudi regulatory affairs, leading SFDA registration portfolios for local distributors and consultancies in Saudi Arabia. Over that time, I have built a working knowledge of how SFDA reviewers read a file and where submissions most often get returned.</p>
+          <p>My focus is bridging innovation with compliance: helping breakthrough medical technologies meet regulatory standards and reach patients in the Kingdom efficiently, in line with Vision 2030's healthcare transformation.</p>
+          <div class="chips" aria-label="Areas of expertise">
+            <span class="chip">Regulatory licensing</span>
+            <span class="chip">Device classification</span>
+            <span class="chip">Technical documentation and SOPs</span>
+            <span class="chip">Authority engagement</span>
+            <span class="chip">Risk and compliance management</span>
+            <span class="chip">Market entry strategy</span>
+            <span class="chip">Team training</span>
+            <span class="chip">ISO 13485 internal audit</span>
+          </div>
+        </div>
+        <ol class="timeline" aria-label="Career">
+          <li><div class="role">Freelance SFDA Regulatory Consultant</div><div class="org">Independent practice, Saudi Arabia · Present</div></li>
+          <li><div class="role">Head of Regulatory Affairs &amp; International Business Development</div><div class="org">UniFusion B.S.C.</div></li>
+          <li><div class="role">Supply Portfolio &amp; RA Manager</div><div class="org">Pulse Healthcare Solutions</div></li>
+          <li><div class="role">Regulatory Affairs Manager</div><div class="org">Dar Batterjee</div></li>
+          <li><div class="role">Regulatory Affairs Specialist</div><div class="org">Alkhateeb United · over a decade</div></li>        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="masterclass">
+    <div class="wrap">
+      <div class="masterclass">
+        <div>
+          <div class="eyebrow" style="color:var(--gold)">ReguLensWithMohi Masterclass</div>
+          <h2>Learn the SFDA registration process from the inside.</h2>
+          <p>Practical training for regulatory professionals, manufacturer teams, and importers and distributors, delivered in the format that suits you:</p>
+          <div class="chips" style="margin-top:16px">
+            <span class="chip" style="background:transparent;color:inherit">One-to-one personal training</span>
+            <span class="chip" style="background:transparent;color:inherit">On-site training at your premises</span>
+            <span class="chip" style="background:transparent;color:inherit">Live online sessions</span>
+          </div>
+          <div class="actions" style="margin-top:22px">
+            <a class="btn" href="#contact" data-topic="Training (Masterclass)">Request training</a>
+          </div>
+        </div>
+        <ul>
+          <li>SFDA structure, GHAD and the MDMA pathway</li>
+          <li>Licences: ARL, MDEL, MDIL and NCMDR</li>
+          <li>Classification and bundling rules</li>
+          <li>Building a technical file reviewers accept</li>
+          <li>Reading and answering SFDA queries</li>
+          <li>Arabic labeling and post-market duties</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="num">05</div>
+        <div><h2>Start a conversation</h2><p>Tell me about your product and target timeline. I reply within one business day.</p></div>
+      </div>
+      <div class="contact">
+        <div>
+          <p>Prefer a direct channel? Call or message me on WhatsApp, add me on WeChat, or connect on LinkedIn.</p>
+          <div class="links">
+            <a href="https://wa.me/966502448257">Mobile / WhatsApp <span>+966 50 244 8257</span></a>
+            <div class="static">WeChat <span>mohi_mmf</span></div>
+            <a href="https://www.linkedin.com/in/mohiuddinmfarooqui">LinkedIn <span>/in/mohiuddinmfarooqui</span></a>
+            <a href="https://www.youtube.com/@reglenswithmohi">YouTube <span>@reglenswithmohi</span></a>
+          </div>
+        </div>
+        <form id="enq" novalidate>
+          <div class="row2">
+            <div><label for="f-name">Your name</label><input id="f-name" required autocomplete="name"></div>
+            <div><label for="f-company">Company</label><input id="f-company" autocomplete="organization"></div>
+          </div>
+          <div class="row2">
+            <div><label for="f-email">Email</label><input id="f-email" type="email" required autocomplete="email"></div>
+            <div><label for="f-topic">I need help with</label>
+              <select id="f-topic">
+                <option>MDMA registration</option>
+                <option>ARL – Authorized Representative Licence</option>
+                <option>MDEL – Establishment Licence</option>
+                <option>MDIL – Import Licence</option>
+                <option>PCS – Product Classification Service</option>
+                <option>NCMDR – Queries</option>
+                <option>UDI listing</option>
+                <option>Technical file review</option>
+                <option>Bundling or classification</option>
+                <option>SFDA query support</option>
+                <option>Training (Masterclass)</option>
+                <option>Something else</option>
+              </select>
+            </div>
+          </div>
+          <div><label for="f-msg">Product and details</label><textarea id="f-msg" placeholder="e.g. Class C IVD rapid test, CE marked, aiming to submit in Q1"></textarea></div>
+          <div class="actions">
+            <button class="btn" type="submit">Prepare my enquiry</button>
+          </div>
+          <div id="out" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Mohiuddin M. Farooqui · Riyadh, Saudi Arabia</span>
+    <span>Freelance SFDA regulatory consultant for medical devices and IVDs</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var form=document.getElementById('enq'), out=document.getElementById('out');
+  document.querySelectorAll('[data-topic]').forEach(function(a){
+    a.addEventListener('click',function(){document.getElementById('f-topic').value=a.getAttribute('data-topic');});
+  });
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var g=function(id){return document.getElementById(id).value.trim();};
+    if(!g('f-name')||!g('f-email')){out.textContent='Please add your name and email so I can reply.';out.className='show';return;}
+    var text='Enquiry: '+g('f-topic')+'\nName: '+g('f-name')+'\nCompany: '+(g('f-company')||'-')+'\nEmail: '+g('f-email')+'\n\n'+(g('f-msg')||'');
+    out.textContent='';
+    var p=document.createElement('div');p.textContent=text;out.appendChild(p);
+    var note=document.createElement('p');note.style.marginTop='12px';
+    note.textContent='Copy this and send it to me on WhatsApp (+966 50 244 8257), WeChat (mohi_mmf) or LinkedIn.';out.appendChild(note);
+    var b=document.createElement('button');b.type='button';b.className='btn small';b.style.marginTop='10px';b.textContent='Copy message';
+    b.addEventListener('click',function(){
+      if(navigator.clipboard){navigator.clipboard.writeText(text).then(function(){b.textContent='Copied';},function(){b.textContent='Select and copy the text above';});}
+    });
+    out.appendChild(b);out.className='show';
+  });
+})();
+</script>
+</body>
+</html>
